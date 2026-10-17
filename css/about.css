@@ -1,0 +1,380 @@
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.about-section .section-heading {
+    width: min(
+        calc(100% - 48px),
+        1250px
+    );
+
+    margin: 0 auto 60px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.about-section .section-number {
+    padding-top: 8px;
+
+    color: var(--accent);
+
+    font-family: var(--font-hand);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.about-section .section-kicker {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-section .section-heading h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: var(--font-hand);
+    font-size: clamp(
+        42px,
+        4.5vw,
+        64px
+    );
+
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.about-section .section-heading h2 span {
+    color: var(--accent-light);
+}
+
+
+/* =========================================================
+   ABOUT GRID
+   ========================================================= */
+
+.about-grid {
+    width: min(
+        calc(100% - 48px),
+        1250px
+    );
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(360px, 0.75fr);
+
+    align-items: start;
+
+    gap: 80px;
+}
+
+
+/* =========================================================
+   ABOUT TEXT
+   ========================================================= */
+
+.about-text {
+    max-width: 650px;
+}
+
+.about-text p {
+    margin: 0 0 24px;
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.about-text p:first-child {
+    color: var(--text-soft);
+}
+
+.about-text strong {
+    color: var(--text);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ABOUT STATS
+   ========================================================= */
+
+.about-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.about-section .stat-card {
+    position: relative;
+
+    min-height: 150px;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: var(--bg-secondary);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD CORNER DETAIL
+   ========================================================= */
+
+.about-section .stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 24px;
+    height: 24px;
+
+    border-top:
+        1px solid
+        var(--accent);
+
+    border-left:
+        1px solid
+        var(--accent);
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   CARD GRID
+   ========================================================= */
+
+.about-section .stat-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            var(--grid-line) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--grid-line) 1px,
+            transparent 1px
+        );
+
+    background-size: 24px 24px;
+
+    opacity: 0.2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.about-section .stat-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 45%,
+            transparent
+        );
+
+    background: var(--bg-card);
+}
+
+
+/* =========================================================
+   STAT VALUE
+   ========================================================= */
+
+.about-section .stat-card strong {
+    position: relative;
+
+    z-index: 1;
+
+    color: var(--text);
+
+    font-family: var(--font-hand);
+
+    font-size: 30px;
+
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   STAT DESCRIPTION
+   ========================================================= */
+
+.about-section .stat-card span {
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 160px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-text {
+        max-width: 750px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .about-section .section-heading {
+        width:
+            calc(100% - 32px);
+
+        gap: 16px;
+
+        margin-bottom: 45px;
+    }
+
+    .about-section .section-number {
+        font-size: 12px;
+    }
+
+    .about-section .section-heading h2 {
+        font-size: 44px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .about-grid {
+        width:
+            calc(100% - 32px);
+
+        gap: 40px;
+    }
+
+    .about-text p {
+        font-size: 13px;
+    }
+
+    .about-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+    .about-section .stat-card {
+        min-height: 135px;
+        padding: 20px;
+    }
+
+    .about-section .stat-card strong {
+        font-size: 27px;
+    }
+
+    .about-section .stat-card span {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -1,0 +1,723 @@
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.hero-container {
+
+    width: min(
+        calc(100% - 48px),
+        1250px
+    );
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(380px, 0.65fr);
+
+    align-items: center;
+
+    gap: 80px;
+
+    padding-top: 100px;
+
+    padding-bottom: 60px;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.hero-content {
+
+    max-width: 650px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+   ========================================================= */
+
+.availability {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    margin-bottom: 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 30px;
+
+    color: var(--text-soft);
+
+    background: var(--bg-secondary);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.availability-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px
+        color-mix(
+            in srgb,
+            var(--success) 55%,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.hero-intro {
+
+    margin-bottom: 4px;
+
+    color: var(--text);
+
+    font-family: var(--font-hand);
+
+    font-size: 32px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   NAME
+   ========================================================= */
+
+.hero-name {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: var(--font-hand);
+
+    font-size: clamp(
+        52px,
+        5vw,
+        76px
+    );
+
+    font-weight: 700;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+
+.hero-name span {
+
+    color: var(--accent-light);
+}
+
+
+/* =========================================================
+   ROLE
+   ========================================================= */
+
+.hero-role {
+
+    margin: 18px 0;
+
+    color: var(--text-soft);
+
+    font-family: var(--font-hand);
+
+    font-size: clamp(
+        25px,
+        2.7vw,
+        35px
+    );
+
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.hero-description {
+
+    max-width: 600px;
+
+    margin-bottom: 28px;
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.hero-actions .btn {
+
+    min-height: 45px;
+
+    min-width: 170px;
+
+    font-size: 13px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.hero-actions .btn svg {
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TERMINAL WRAPPER
+   ========================================================= */
+
+.hero-terminal-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   SMALL TERMINAL
+   ========================================================= */
+
+.terminal-window {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    height: 285px;
+
+    background: var(--bg-secondary);
+
+    border:
+        1px solid var(--border-light);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px
+        var(--shadow);
+
+    transform: rotate(1deg);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.terminal-window:hover {
+
+    transform: rotate(0deg);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 35%,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   TERMINAL HEADER
+   ========================================================= */
+
+.terminal-header {
+
+    position: relative;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 14px;
+
+    border-bottom: 2px solid rgba(11, 6, 32, 0.7);
+
+    background: rgba(17, 14, 38, 0.85);
+}
+
+
+.terminal-dots {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+}
+
+
+.terminal-dot {
+
+    display: inline-block !important;
+
+    width: 10px !important;
+
+    height: 10px !important;
+
+    border-radius: 50% !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+.terminal-dot.red {
+    background: #ff5f57 !important;
+}
+
+
+.terminal-dot.yellow {
+    background: #febc2e !important;
+}
+
+
+.terminal-dot.green {
+    background: #28c840 !important;
+}
+
+
+.terminal-title {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #cfcaf5;
+
+    font-family:
+        "JetBrains Mono",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.terminal-status {
+
+    margin-left: auto;
+
+    color: #34d399;
+
+    font-family:
+        "JetBrains Mono",
+        Consolas,
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TERMINAL BODY
+   ========================================================= */
+
+.terminal-body {
+
+    height: 207px;
+
+    padding: 15px;
+
+    overflow: hidden;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 10px;
+
+    line-height: 1.65;
+}
+
+
+.terminal-line {
+
+    margin-bottom: 4px;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+}
+
+
+.terminal-command {
+
+    color: var(--text);
+}
+
+
+.terminal-prompt {
+
+    color: var(--accent);
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.terminal-output {
+
+    color: var(--text-muted);
+}
+
+
+.terminal-success {
+
+    color: var(--success);
+}
+
+
+.terminal-error {
+
+    color: var(--danger);
+}
+
+
+.terminal-muted {
+
+    color: var(--text-faint);
+}
+
+
+/* =========================================================
+   CURRENT PROMPT
+   ========================================================= */
+
+.terminal-current-line {
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        0 15px 10px;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 10px;
+}
+
+
+.terminal-cursor {
+
+    width: 6px;
+
+    height: 12px;
+
+    background: var(--accent);
+
+    display: inline-block;
+
+    animation:
+        terminalBlink 1s
+        steps(1)
+        infinite;
+}
+
+
+@keyframes terminalBlink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.hero-scroll {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-faint);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.hero-scroll span {
+
+    width: 22px;
+
+    height: 1px;
+
+    background: var(--text-faint);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-top: 120px;
+    }
+
+
+    .hero-content {
+
+        max-width: 750px;
+    }
+
+
+    .hero-terminal-wrapper {
+
+        justify-content: flex-start;
+    }
+
+
+    .terminal-window {
+
+        max-width: 430px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero-container {
+
+        width:
+            calc(100% - 32px);
+
+        padding-top: 110px;
+
+        padding-bottom: 70px;
+    }
+
+
+    .hero-intro {
+
+        font-size: 27px;
+    }
+
+
+    .hero-name {
+
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .hero-role {
+
+        font-size: 26px;
+    }
+
+
+    .hero-description {
+
+        font-size: 13px;
+    }
+
+
+    .hero-actions {
+
+        width: 100%;
+    }
+
+
+    .hero-actions .btn {
+
+        min-width: 150px;
+    }
+
+
+    .terminal-window {
+
+        width: 100%;
+
+        max-width: 380px;
+
+        height: 260px;
+
+        transform: none;
+    }
+
+
+    .terminal-body {
+
+        height: 185px;
+
+        font-size: 9px;
+    }
+
+
+    .terminal-status {
+
+        display: none;
+    }
+
+
+    .hero-scroll {
+
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .terminal-cursor {
+
+        animation: none;
+    }
+
+}

@@ -1,0 +1,326 @@
+/* =========================================================
+   WORKFLOW SECTION
+   ========================================================= */
+
+.workflow-section {
+    padding: 120px 0 140px;
+    background: transparent;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.workflow-header {
+    max-width: 900px;
+    margin-bottom: 75px;
+}
+
+.workflow-header .section-description {
+    max-width: 720px;
+}
+
+
+/* =========================================================
+   HORIZONTAL WORKFLOW
+   ========================================================= */
+
+.workflow {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 0;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CONNECTING LINE
+   ========================================================= */
+
+.workflow::before {
+    content: "";
+
+    position: absolute;
+
+    top: 29px;
+    left: 8%;
+    right: 8%;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        var(--accent),
+        transparent
+    );
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   WORKFLOW STEP
+   ========================================================= */
+
+.workflow-step {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    min-width: 0;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   MARKER
+   ========================================================= */
+
+.workflow-marker {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 2px solid var(--accent);
+
+    border-radius: 50%;
+
+    background: var(--bg-main);
+
+    position: relative;
+
+    z-index: 2;
+
+    box-shadow:
+        0 0 0 8px var(--bg-main),
+        0 0 25px
+        color-mix(
+            in srgb,
+            var(--accent) 15%,
+            transparent
+        );
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.workflow-marker span {
+    font-family: monospace;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--accent-light);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.workflow-content {
+    width: 100%;
+
+    max-width: 190px;
+
+    margin-top: 30px;
+}
+
+.workflow-label {
+    margin-bottom: 10px;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--accent-light);
+}
+
+.workflow-content h3 {
+    margin: 0 0 12px;
+
+    font-family: var(--font-hand);
+
+    font-size: 27px;
+
+    line-height: 1.1;
+
+    color: var(--text);
+
+    transition: color 0.25s ease;
+}
+
+.workflow-content p {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.workflow-step:hover .workflow-marker {
+    background: var(--accent);
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 0 8px var(--bg-main),
+        0 0 35px
+        color-mix(
+            in srgb,
+            var(--accent) 35%,
+            transparent
+        );
+}
+
+.workflow-step:hover .workflow-marker span {
+    color: var(--button-primary-text);
+}
+
+.workflow-step:hover .workflow-content h3 {
+    color: var(--accent-light);
+}
+
+
+/* =========================================================
+   BOTTOM FLOW
+   ========================================================= */
+
+.workflow-footer {
+    margin: 75px auto 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: var(--text-faint);
+}
+
+.workflow-footer span:nth-child(even) {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   LARGE TABLETS
+   ========================================================= */
+
+@media (max-width: 1150px) {
+
+    .workflow {
+        grid-template-columns: repeat(3, 1fr);
+
+        row-gap: 70px;
+    }
+
+    .workflow::before {
+        display: none;
+    }
+
+    .workflow-step {
+        position: relative;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .workflow-section {
+        padding: 90px 0 100px;
+    }
+
+    .workflow {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .workflow-step {
+        align-items: flex-start;
+
+        text-align: left;
+
+        padding-left: 65px;
+    }
+
+    .workflow-marker {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 48px;
+        height: 48px;
+    }
+
+    .workflow-content {
+        max-width: none;
+
+        margin-top: 0;
+    }
+
+    .workflow-content h3 {
+        font-size: 28px;
+    }
+
+    .workflow-content p {
+        font-size: 14px;
+    }
+
+    .workflow-footer {
+        display: none;
+    }
+}

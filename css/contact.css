@@ -1,0 +1,577 @@
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+    padding: 120px 0 140px;
+    background: var(--bg-main);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.contact-header {
+    max-width: 760px;
+    margin-bottom: 60px;
+}
+
+.contact-header .section-label {
+    margin-bottom: 18px;
+}
+
+.contact-header .section-title {
+    margin: 0 0 22px;
+
+    color: var(--text);
+
+    font-family: var(--font-hand);
+
+    font-size: clamp(42px, 5vw, 64px);
+
+    line-height: 0.95;
+}
+
+.contact-header .section-title span {
+    color: var(--accent);
+}
+
+.contact-header .section-description {
+    max-width: 650px;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTACT GRID
+   ========================================================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 50px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
+
+.contact-terminal {
+
+    height: 100%;
+
+    min-height: 330px;
+
+    overflow: hidden;
+
+    background: var(--bg-secondary);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.contact-terminal-header {
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 16px;
+
+    background: var(--bg-card);
+
+    border-bottom:
+        1px solid var(--border-soft);
+
+    color: var(--text-faint);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.5px;
+}
+
+
+.contact-terminal-header .terminal-dots {
+
+    display: flex;
+
+    gap: 6px;
+
+    margin-right: auto;
+}
+
+
+.contact-terminal-header .terminal-dot {
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+}
+
+
+.contact-terminal-header .terminal-dot.red {
+    background: #ff5f57;
+}
+
+.contact-terminal-header .terminal-dot.yellow {
+    background: #febc2e;
+}
+
+.contact-terminal-header .terminal-dot.green {
+    background: #28c840;
+}
+
+
+/* =========================================================
+   TERMINAL BODY
+   ========================================================= */
+
+.contact-terminal-body {
+
+    padding: 28px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+
+    line-height: 2;
+}
+
+
+.contact-terminal-body > div {
+    white-space: nowrap;
+}
+
+
+.terminal-prompt {
+    color: var(--accent-light);
+
+    margin-right: 7px;
+}
+
+
+.terminal-output {
+
+    color: var(--text-faint);
+
+    padding-left: 17px;
+}
+
+
+.terminal-cursor-line {
+    margin-top: 10px;
+}
+
+
+.contact-cursor {
+
+    display: inline-block;
+
+    width: 7px;
+    height: 13px;
+
+    margin-left: 2px;
+
+    vertical-align: middle;
+
+    background: var(--accent);
+
+    animation:
+        contactCursorBlink 1s infinite;
+}
+
+
+@keyframes contactCursorBlink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   CONTACT LINKS
+   ========================================================= */
+
+.contact-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   CONTACT CARD
+   ========================================================= */
+
+.contact-card {
+
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 20px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--bg-card),
+            var(--bg-secondary)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.contact-card:hover {
+
+    transform:
+        translateX(5px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 35%,
+            transparent
+        );
+
+    background:
+        var(--bg-card-hover);
+}
+
+
+/* =========================================================
+   CONTACT ICON
+   ========================================================= */
+
+.contact-card-icon {
+
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 7px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--text) 2.5%,
+            transparent
+        );
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.contact-card-icon i {
+
+    font-size: 21px;
+}
+
+
+.contact-card-icon svg {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   CONTACT ICON VARIANTS — themed per platform
+   ========================================================= */
+
+.contact-card-icon--email {
+    color: #ea4335;
+    border-color: rgba(234, 67, 53, 0.22);
+    background: rgba(234, 67, 53, 0.07);
+}
+
+.contact-card:hover .contact-card-icon--email {
+    background: rgba(234, 67, 53, 0.14);
+    border-color: rgba(234, 67, 53, 0.40);
+}
+
+.contact-card-icon--github {
+    color: var(--text-soft);
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--text) 4%, transparent);
+}
+
+.contact-card:hover .contact-card-icon--github {
+    color: var(--text);
+    background: color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+.contact-card-icon--linkedin {
+    color: #0a66c2;
+    border-color: rgba(10, 102, 194, 0.22);
+    background: rgba(10, 102, 194, 0.07);
+}
+
+.contact-card:hover .contact-card-icon--linkedin {
+    background: rgba(10, 102, 194, 0.14);
+    border-color: rgba(10, 102, 194, 0.40);
+}
+
+
+/* =========================================================
+   CONTACT CARD CONTENT
+   ========================================================= */
+
+.contact-card-content {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.contact-card-label {
+
+    color: var(--text-faint);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.contact-card-value {
+
+    overflow: hidden;
+
+    color: var(--text-soft);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.contact-card-arrow {
+
+    margin-left: auto;
+
+    color: var(--text-faint);
+
+    font-size: 17px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.contact-card:hover .contact-card-arrow {
+
+    color: var(--accent-light);
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   AVAILABILITY
+   ========================================================= */
+
+.contact-availability {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 55px;
+
+    color: var(--text-faint);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.contact-availability .availability-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px
+        color-mix(
+            in srgb,
+            var(--success) 35%,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .contact-section {
+        padding: 90px 0 100px;
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+
+    .contact-terminal {
+        min-height: 300px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .contact-header {
+        margin-bottom: 40px;
+    }
+
+
+    .contact-terminal-body {
+        padding: 22px;
+
+        font-size: 10px;
+    }
+
+
+    .contact-card {
+        min-height: 82px;
+
+        padding: 15px;
+    }
+
+
+    .contact-card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .contact-card-value {
+        font-size: 9px;
+    }
+
+}

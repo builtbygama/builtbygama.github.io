@@ -1,0 +1,918 @@
+/* =========================================================
+   GLOBAL STYLES
+   builtbygama
+   Cloud & DevOps Engineer
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT THEME VARIABLES
+   ========================================================= */
+
+:root {
+
+    /* -----------------------------------------------------
+       BACKGROUND
+       ----------------------------------------------------- */
+
+    --bg-main:
+        #0a0a0a;
+
+    --bg-secondary:
+        #101010;
+
+    --bg-card:
+        #141414;
+
+    --bg-card-hover:
+        #1a1a1a;
+
+    --bg-panel:
+        #111111;
+
+    --bg-panel-hover:
+        #181818;
+
+
+    /* -----------------------------------------------------
+       TEXT
+       ----------------------------------------------------- */
+
+    --text:
+        #f5f5f5;
+
+    --text-soft:
+        #c8c8c8;
+
+    --text-muted:
+        #8a8a8a;
+
+    --text-faint:
+        #555555;
+
+
+    /* -----------------------------------------------------
+       ACCENT
+       ----------------------------------------------------- */
+
+    --accent:
+        #b59cff;
+
+    --accent-light:
+        #c9b8ff;
+
+    --accent-dark:
+        #8f75d6;
+
+
+    /* -----------------------------------------------------
+       BORDERS
+       ----------------------------------------------------- */
+
+    --border:
+        rgba(255, 255, 255, 0.10);
+
+    --border-light:
+        rgba(255, 255, 255, 0.18);
+
+    --border-dark:
+        rgba(255, 255, 255, 0.06);
+
+
+    /* -----------------------------------------------------
+       BACKGROUND GRID
+       ----------------------------------------------------- */
+
+    --grid-line:
+        rgba(255, 255, 255, 0.035);
+
+
+    /* -----------------------------------------------------
+       SKETCH / DOODLE
+       ----------------------------------------------------- */
+
+    --sketch-color:
+        rgba(255, 255, 255, 0.10);
+
+
+    /* -----------------------------------------------------
+       SHADOW
+       ----------------------------------------------------- */
+
+    --shadow:
+        rgba(0, 0, 0, 0.45);
+
+
+    /* -----------------------------------------------------
+       BUTTONS
+       ----------------------------------------------------- */
+
+    --button-primary-bg:
+        var(--accent);
+
+    --button-primary-text:
+        #080808;
+
+    --button-secondary-bg:
+        transparent;
+
+    --button-secondary-text:
+        var(--text);
+
+
+    /* -----------------------------------------------------
+       TYPOGRAPHY
+       ----------------------------------------------------- */
+
+    --font-main:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    --font-hand:
+        "Patrick Hand",
+        cursive;
+
+    --font-mono:
+        "JetBrains Mono",
+        "Fira Code",
+        Consolas,
+        monospace;
+
+
+    /* -----------------------------------------------------
+       LAYOUT
+       ----------------------------------------------------- */
+
+    --max-width:
+        1200px;
+
+    --nav-height:
+        64px;
+
+
+    /* -----------------------------------------------------
+       TRANSITIONS
+       ----------------------------------------------------- */
+
+    --transition:
+        0.3s ease;
+
+}
+
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+body.light {
+
+    --bg-main:
+        #f5f5f5;
+
+    --bg-secondary:
+        #eeeeee;
+
+    --bg-card:
+        #ffffff;
+
+    --bg-card-hover:
+        #f2f2f2;
+
+    --bg-panel:
+        #ffffff;
+
+    --bg-panel-hover:
+        #f4f4f4;
+
+
+    --text:
+        #111111;
+
+    --text-soft:
+        #333333;
+
+    --text-muted:
+        #666666;
+
+    --text-faint:
+        #999999;
+
+
+    --accent:
+        #7658c7;
+
+    --accent-light:
+        #8e73dc;
+
+    --accent-dark:
+        #5b429e;
+
+
+    --border:
+        rgba(0, 0, 0, 0.10);
+
+    --border-light:
+        rgba(0, 0, 0, 0.18);
+
+    --border-dark:
+        rgba(0, 0, 0, 0.06);
+
+
+    --grid-line:
+        rgba(0, 0, 0, 0.045);
+
+
+    --sketch-color:
+        rgba(0, 0, 0, 0.10);
+
+
+    --shadow:
+        rgba(0, 0, 0, 0.15);
+
+
+    --button-primary-bg:
+        var(--accent);
+
+    --button-primary-text:
+        #ffffff;
+
+    --button-secondary-bg:
+        transparent;
+
+    --button-secondary-text:
+        var(--text);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    box-sizing:
+        border-box;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+}
+
+
+/* =========================================================
+   HTML
+   ========================================================= */
+
+html {
+
+    scroll-behavior:
+        smooth;
+
+    scroll-padding-top:
+        100px;
+
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+
+    position:
+        relative;
+
+    min-height:
+        100vh;
+
+    background:
+        var(--bg-main);
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-main);
+
+    overflow-x:
+        hidden;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button,
+input,
+textarea {
+
+    font:
+        inherit;
+
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+img {
+
+    max-width:
+        100%;
+
+    display:
+        block;
+
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+section {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    background:
+        var(--bg-main);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+
+}
+
+
+/* =========================================================
+   COMMON CONTAINER
+   ========================================================= */
+
+.container {
+
+    width:
+        min(
+            calc(100% - 32px),
+            var(--max-width)
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        18px;
+
+}
+
+
+/* =========================================================
+   SECTION NUMBER
+   ========================================================= */
+
+.section-number {
+
+    color:
+        var(--accent);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.08em;
+
+}
+
+
+/* =========================================================
+   SECTION KICKER
+   ========================================================= */
+
+.section-kicker {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--accent);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.14em;
+
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.section-title {
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            52px
+        );
+
+    font-weight:
+        700;
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -1.5px;
+
+}
+
+
+/* =========================================================
+   COMMON TEXT
+   ========================================================= */
+
+p {
+
+    color:
+        var(--text-soft);
+
+    line-height:
+        1.75;
+
+}
+
+
+/* =========================================================
+   STRONG
+   ========================================================= */
+
+strong {
+
+    color:
+        var(--text);
+
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid var(--border);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.btn-primary {
+
+    background:
+        var(--button-primary-bg);
+
+    color:
+        var(--button-primary-text);
+
+    border-color:
+        var(--button-primary-bg);
+
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON HOVER
+   ========================================================= */
+
+.btn-primary:hover {
+
+    background:
+        var(--button-primary-bg);
+
+    box-shadow:
+        0 8px 30px
+        color-mix(
+            in srgb,
+            var(--accent) 12%,
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.btn-secondary {
+
+    background:
+        var(--button-secondary-bg);
+
+    color:
+        var(--button-secondary-text);
+
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON HOVER
+   ========================================================= */
+
+.btn-secondary:hover {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent) 8%,
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width:
+        8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        var(--bg-main);
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        var(--text-faint);
+
+    border-radius:
+        10px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--accent);
+
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+
+    background:
+        var(--accent);
+
+    color:
+        var(--button-primary-text);
+
+}
+
+
+/* =========================================================
+   THEME TRANSITION
+   ========================================================= */
+
+body,
+section,
+.card,
+.btn,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+
+}
+
+
+/* =========================================================
+   GLOBAL PORTFOLIO BACKGROUND
+   ========================================================= */
+
+body {
+
+    position:
+        relative;
+
+    background:
+        var(--bg-main);
+
+}
+
+
+/* =========================================================
+   BACKGROUND DOODLES
+   ========================================================= */
+
+#background-doodles {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    pointer-events:
+        none;
+
+    overflow:
+        hidden;
+
+    z-index:
+        0;
+
+}
+
+
+/* =========================================================
+   PAGE STACKING
+   ========================================================= */
+
+/*
+   IMPORTANT:
+
+   The navbar must NOT share the same stacking level
+   as <main>.
+
+   main comes later in the DOM, so keeping both at
+   z-index: 2 allows main to paint over the navbar.
+
+   Navbar therefore gets its own higher stacking level.
+*/
+
+
+#navbar {
+
+    position:
+        relative;
+
+    z-index:
+        10000;
+
+}
+
+
+main {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+#footer-mount {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+/* =========================================================
+   NAVBAR SAFETY LAYER
+   ========================================================= */
+
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 32px),
+                var(--max-width)
+            );
+
+    }
+
+
+    section {
+
+        padding:
+            90px 0;
+
+    }
+
+
+    .section-title {
+
+        letter-spacing:
+            -1px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+
+        width:
+            calc(100% - 24px);
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
+
+/* =========================================================
+   BACKGROUND VISIBILITY
+   Sections are transparent so the animated network shows
+   through; cards keep their own backgrounds.
+   ========================================================= */
+main > div > section,
+main section.hero {
+    background: transparent;
+}
+
+body.light .network-grid {
+    background-image:
+        linear-gradient(rgba(20, 20, 40, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 20, 40, 0.07) 1px, transparent 1px);
+}
+
+/* =========================================================
+   BASE BUTTON (was missing; only colours were defined)
+   ========================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 22px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}

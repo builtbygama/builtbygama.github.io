@@ -1,0 +1,290 @@
+<section class="projects-section" id="projects">
+
+    <div class="container">
+
+        <!-- =====================================================
+             PROJECT HEADER
+             ===================================================== -->
+
+        <div class="projects-header">
+
+            <div class="section-label">
+                Selected Work
+            </div>
+
+            <h2 class="section-title">
+                Things I've
+                <span>built.</span>
+            </h2>
+
+            <p class="section-description">
+                A collection of cloud infrastructure, automation,
+                DevOps and platform engineering projects.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             PROJECT CATEGORY NAVIGATION
+
+             JavaScript will automatically generate the
+             category buttons from projects.js.
+             ===================================================== -->
+
+        <div
+            class="project-filters"
+            id="projectFilters"
+        ></div>
+
+
+        <!-- =====================================================
+             PROJECT COUNT / CURRENT VIEW
+             ===================================================== -->
+
+        <div class="projects-toolbar">
+
+            <div
+                class="projects-current-category"
+                id="projectsCurrentCategory"
+            >
+                Featured
+            </div>
+
+            <div
+                class="projects-count"
+                id="projectsCount"
+            >
+                0 Projects
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PROJECT GRID
+
+             JavaScript will generate all project cards here.
+             ===================================================== -->
+
+        <div
+            class="projects-grid"
+            id="projectsGrid"
+        ></div>
+
+
+        <!-- =====================================================
+             LOAD MORE
+             JavaScript controls visibility.
+             ===================================================== -->
+
+        <div
+            class="projects-load-more"
+            id="projectsLoadMore"
+            hidden
+        >
+            <button
+                type="button"
+                class="load-more-button"
+                id="loadMoreProjects"
+            >
+                Load More
+                <span>↓</span>
+            </button>
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================================
+         PROJECT DETAIL VIEW
+
+         JavaScript will populate this when the user
+         clicks "View Project".
+         ========================================================= -->
+
+    <div
+        class="project-detail"
+        id="projectDetail"
+        hidden
+    >
+
+        <div class="project-detail-inner">
+
+            <!-- CLOSE -->
+
+            <button
+                type="button"
+                class="project-detail-close"
+                id="projectDetailClose"
+                aria-label="Close project"
+            >
+                ×
+            </button>
+
+
+            <!-- =================================================
+                 DETAIL HEADER
+                 ================================================= -->
+
+            <div class="project-detail-header">
+
+                <div
+                    class="project-detail-category"
+                    id="projectDetailCategory"
+                ></div>
+
+                <h2
+                    class="project-detail-title"
+                    id="projectDetailTitle"
+                ></h2>
+
+                <p
+                    class="project-detail-description"
+                    id="projectDetailDescription"
+                ></p>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARCHITECTURE DIAGRAM
+                 ================================================= -->
+
+            <div class="project-detail-architecture">
+
+                <div class="project-detail-label">
+                    Architecture
+                </div>
+
+                <div class="project-detail-image">
+
+                    <img
+                        id="projectDetailImage"
+                        src=""
+                        alt=""
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT INFORMATION
+                 ================================================= -->
+
+            <div class="project-detail-grid">
+
+
+                <!-- WHAT I BUILT -->
+
+                <div class="project-detail-block">
+
+                    <div class="project-detail-label">
+                        What I built
+                    </div>
+
+                    <p
+                        id="projectDetailOverview"
+                    ></p>
+
+                </div>
+
+
+                <!-- TECHNOLOGIES -->
+
+                <div class="project-detail-block">
+
+                    <div class="project-detail-label">
+                        Technologies
+                    </div>
+
+                    <div
+                        class="project-detail-technologies"
+                        id="projectDetailTechnologies"
+                    ></div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPLEMENTATION
+                 ================================================= -->
+
+            <div class="project-detail-implementation">
+
+                <div class="project-detail-label">
+                    Implementation
+                </div>
+
+                <div
+                    class="project-detail-implementation-content"
+                    id="projectDetailImplementation"
+                ></div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EVIDENCE / SCREENSHOTS
+                 ================================================= -->
+
+            <div
+                class="project-detail-evidence"
+                id="projectDetailEvidence"
+            >
+
+                <div class="project-detail-label">
+                    Project Evidence
+                </div>
+
+                <div
+                    class="project-detail-screenshots"
+                    id="projectDetailScreenshots"
+                ></div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT ACTIONS
+                 ================================================= -->
+
+            <div class="project-detail-actions">
+
+                <a
+                    href="#"
+                    id="projectDetailGithub"
+                    class="project-detail-button primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View GitHub
+                    <span>↗</span>
+                </a>
+
+                <a
+                    href="#"
+                    id="projectDetailLive"
+                    class="project-detail-button secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    hidden
+                >
+                    View Deployment
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

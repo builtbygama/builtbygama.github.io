@@ -1,0 +1,406 @@
+/* =========================================================
+   SHADOW / SYSTEM THEME  (loaded last so it overrides others)
+   Near-black violet, glowing violet + electric blue accents,
+   HUD-style panels, rune circles, rising embers.
+   Tweak the palette in the two variable blocks below.
+   ========================================================= */
+
+/* ---------- DARK (default) ---------- */
+:root {
+    --font-hand: "Rajdhani", "Inter", system-ui, sans-serif;
+    --font-main: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", Consolas, monospace;
+
+    --bg-main: #07060f;
+    --bg-secondary: #0d0b1e;
+    --bg-card: #110e26;
+    --bg-card-hover: #17133a;
+    --bg-panel: #110e26;
+    --bg-panel-hover: #17133a;
+
+    --text: #eceaff;
+    --text-soft: #cfcaf5;
+    --text-muted: #a29bd0;
+    --text-faint: #7d76ad;
+
+    --accent: #a78bfa;
+    --accent-light: #c4b5fd;
+    --accent-dark: #6d28d9;
+
+    --glow: #8b5cf6;
+    --system: #38bdf8;
+    --border: rgba(139, 92, 246, 0.28);
+    --shadow: rgba(0, 0, 0, 0.6);
+
+    --button-primary-bg: #7c3aed;
+    --button-primary-text: #ffffff;
+    --button-secondary-bg: rgba(139, 92, 246, 0.08);
+    --button-secondary-text: #eceaff;
+}
+
+/* ---------- LIGHT (moonlit) ---------- */
+body.light {
+    --bg-main: #f2eeff;
+    --bg-secondary: #e8e1ff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f7f3ff;
+    --bg-panel: #ffffff;
+    --bg-panel-hover: #f7f3ff;
+
+    --text: #1b1540;
+    --text-soft: #2f2866;
+    --text-muted: #4d4688;
+    --text-faint: #6a63a3;
+
+    --accent: #6d28d9;
+    --accent-light: #7c3aed;
+    --accent-dark: #4c1d95;
+
+    --glow: #7c3aed;
+    --system: #0284c7;
+    --border: rgba(109, 40, 217, 0.28);
+    --shadow: rgba(27, 21, 64, 0.2);
+
+    --button-primary-bg: #6d28d9;
+    --button-primary-text: #ffffff;
+    --button-secondary-bg: rgba(109, 40, 217, 0.07);
+    --button-secondary-text: #1b1540;
+}
+
+body { font-family: var(--font-main); background: var(--bg-main); }
+
+h1, h2, h3, h4,
+.hero-name, .section-title, .skill-card-title {
+    font-family: var(--font-hand);
+    letter-spacing: 0.3px;
+}
+
+/* ---------- animated background ---------- */
+#background-doodles { overflow: hidden; }
+
+#embers { position: absolute; inset: 0; }
+
+.fog {
+    position: absolute;
+    width: 70vmax;
+    height: 70vmax;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.55;
+    animation: fog-drift 28s ease-in-out infinite alternate;
+}
+
+.fog-1 { left: -20vmax; top: -15vmax; background: radial-gradient(circle, rgba(109, 40, 217, 0.28), transparent 65%); }
+.fog-2 { right: -25vmax; bottom: -25vmax; background: radial-gradient(circle, rgba(56, 189, 248, 0.14), transparent 65%); animation-duration: 36s; animation-delay: -10s; }
+
+body.light .fog { opacity: 0.35; }
+
+@keyframes fog-drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(8vmax, 6vmax) scale(1.15); }
+}
+
+.rune {
+    position: absolute;
+    right: -6vw;
+    top: 50%;
+    width: min(88vh, 760px);
+    height: min(88vh, 760px);
+    margin-top: calc(min(88vh, 760px) / -2);
+    fill: none;
+    stroke: var(--glow);
+    opacity: 0.22;
+    filter: drop-shadow(0 0 8px var(--glow));
+}
+
+body.light .rune { opacity: 0.16; filter: none; }
+
+.rune-a, .rune-b { transform-origin: 0 0; }
+.rune-a { animation: spin 120s linear infinite; }
+.rune-b { animation: spin 80s linear infinite reverse; }
+.rune-core { fill: var(--system); stroke: none; animation: pulse 3s ease-in-out infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 50% { opacity: 0.25; } }
+
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5));
+}
+
+body.light .vignette { background: none; }
+
+/* ---------- scroll progress + cursor glow ---------- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    z-index: 10002;
+    background: linear-gradient(90deg, #6d28d9, #a78bfa, #38bdf8);
+    box-shadow: 0 0 12px var(--glow);
+}
+
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 62%);
+}
+
+body.light .cursor-glow { background: radial-gradient(circle, rgba(124, 58, 237, 0.12), transparent 62%); }
+
+/* ---------- HUD panels: glowing border + corner brackets ---------- */
+.skill-card,
+.project-card,
+.stat-card,
+.contact-card,
+.workflow-step,
+.contact-terminal,
+.terminal-window {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background:
+        linear-gradient(var(--glow), var(--glow)) top left / 16px 2px no-repeat,
+        linear-gradient(var(--glow), var(--glow)) top left / 2px 16px no-repeat,
+        linear-gradient(var(--glow), var(--glow)) bottom right / 16px 2px no-repeat,
+        linear-gradient(var(--glow), var(--glow)) bottom right / 2px 16px no-repeat,
+        linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+    box-shadow: 0 10px 34px var(--shadow);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.stat-card:hover,
+.contact-card:hover,
+.workflow-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--glow);
+    box-shadow: 0 0 0 1px var(--glow), 0 0 32px rgba(139, 92, 246, 0.35), 0 16px 40px var(--shadow);
+}
+
+/* terminals stay dark so code is readable in both themes */
+.terminal-window,
+.contact-terminal {
+    --text: #eceaff;
+    --text-muted: #a29bd0;
+    --text-faint: #7d76ad;
+    --accent: #a78bfa;
+    --success: #34d399;
+    background: linear-gradient(145deg, #110e26, #0a0818);
+    color: #eceaff;
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.2), 0 20px 50px var(--shadow);
+}
+
+/* ---------- buttons: glow + light sweep ---------- */
+.btn {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glow);
+    border-radius: 8px;
+    font-family: var(--font-hand);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary { box-shadow: 0 0 22px rgba(124, 58, 237, 0.55); }
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+}
+
+.btn:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(139, 92, 246, 0.7); }
+.btn:hover::after { transform: translateX(120%); }
+.btn:active { transform: translateY(0); }
+
+/* ---------- chips and filters ---------- */
+.skill-icon-item,
+.project-filter,
+.project-stack span {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: rgba(139, 92, 246, 0.07);
+    color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.skill-icon-item:hover,
+.project-filter:hover {
+    border-color: var(--glow);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.45);
+}
+
+.project-filter.active,
+.project-filter[aria-pressed="true"] {
+    background: linear-gradient(145deg, #7c3aed, #5b21b6);
+    border-color: var(--glow);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.55);
+}
+
+/* ---------- labels and status ---------- */
+.section-label,
+.workflow-label {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--system);
+    background: rgba(56, 189, 248, 0.07);
+    color: var(--system);
+    letter-spacing: 1.5px;
+}
+
+.about-section .section-kicker { color: var(--system); }
+
+.project-status {
+    color: var(--system);
+    border: 1px solid var(--system);
+    border-radius: 4px;
+    padding: 1px 8px;
+    background: rgba(56, 189, 248, 0.08);
+}
+
+/* ---------- glowing, shimmering headline accents ---------- */
+.hero-name,
+.section-title,
+.about-section .section-heading h2 { text-shadow: 0 0 28px rgba(139, 92, 246, 0.35); }
+
+.hero-name span,
+.section-title span,
+.about-section .section-heading h2 span {
+    background: linear-gradient(90deg, #a78bfa, #38bdf8, #a78bfa);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    animation: shine 6s linear infinite;
+}
+
+@keyframes shine { to { background-position: -200% 0; } }
+
+/* ---------- dock ---------- */
+.dock {
+    border: 1px solid var(--border);
+    background: rgba(13, 11, 30, 0.35);
+    box-shadow: 0 0 28px rgba(139, 92, 246, 0.18);
+}
+
+body.light .dock { background: rgba(255, 255, 255, 0.45); }
+
+.dock-link.active {
+    background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+    color: #fff;
+    box-shadow: 0 0 22px rgba(139, 92, 246, 0.7);
+}
+
+.dock-label {
+    border-color: var(--glow);
+    background: var(--bg-card);
+    color: var(--text);
+    font-family: var(--font-hand);
+    font-size: 15px;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
+}
+
+/* ---------- entrance + reveal animation ---------- */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-name,
+.hero-actions,
+.hero-terminal-wrapper { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+
+.hero-actions { animation-delay: 0.25s; }
+.hero-terminal-wrapper { animation-delay: 0.45s; }
+
+.project-card { animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+
+.reveal { opacity: 0; }
+.reveal.in {
+    opacity: 1;
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: var(--d, 0s);
+}
+
+/* ---------- [ SYSTEM ] notifications ---------- */
+#system-toasts {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10002;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.system-toast {
+    min-width: 230px;
+    max-width: 300px;
+    padding: 11px 16px;
+    border: 1px solid rgba(56, 189, 248, 0.7);
+    border-radius: 4px;
+    background: rgba(6, 14, 32, 0.9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #dff4ff;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.3), inset 0 0 18px rgba(56, 189, 248, 0.08);
+    animation: toast 3.4s ease forwards;
+}
+
+.system-toast b { display: block; color: #38bdf8; letter-spacing: 2px; font-size: 11px; }
+
+@keyframes toast {
+    0%   { opacity: 0; transform: translateX(24px); }
+    8%   { opacity: 1; transform: translateX(0); }
+    88%  { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(24px); }
+}
+
+/* about heading kicker is block-level; keep it compact */
+.about-section .section-kicker { display: inline-block; font-size: 12px; margin-bottom: 14px; }
+
+/* workflow cards: never clip long words */
+.workflow-step { min-width: 0; overflow-wrap: anywhere; }
+.workflow-step h3, .workflow-step h4 { font-size: clamp(18px, 1.5vw, 22px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .rune-a, .rune-b, .rune-core, .fog,
+    .hero-name span, .section-title span, .about-section .section-heading h2 span { animation: none; }
+    .reveal { opacity: 1; }
+}
+
+/* readable headline gradient on the light theme */
+body.light .hero-name span,
+body.light .section-title span,
+body.light .about-section .section-heading h2 span {
+    background-image: linear-gradient(90deg, #5b21b6, #0369a1, #5b21b6);
+    background-size: 200% 100%;
+}
+
+/* every section stays transparent so the animated background shows through */
+main > div > section[class] {
+    background: transparent;
+}
